@@ -5,17 +5,88 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
+    <Button
+        android:id="@+id/scanButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scan for BLE Devices"
+        android:layout_margin="20dp"/>
+
+
+    <GridLayout
+        android:id="@+id/addNewButtonGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:columnCount="2"
+        android:padding="16dp"
+        android:rowCount="1">
+
+        <EditText
+            android:id="@+id/irValueInput"
+            android:hint="Enter IR Value (in Hex)"
+            android:inputType="text"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/buttonName"
+            android:hint="Enter Button Name"
+            android:inputType="text"
+            android:minHeight="48dp" />
+    </GridLayout>
 
     <Button
-        android:id="@+id/select_device_button"
+        android:id="@+id/addButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Select Serial Device" />
+        android:text="Add New Button" />
 
-    <TextView
-        android:id="@+id/serial_output"
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/buttonContainer"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical"/>-->
+<!--    </ScrollView>-->
+    <GridLayout
+        android:id="@+id/gridLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Waiting for serial data..."
-        android:textSize="18sp" />
+        android:layout_height="match_parent"
+        android:columnCount="4"
+        android:padding="16dp"
+        android:rowCount="5"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"/>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- RecyclerView for organizing buttons -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Floating Action Button to add new buttons -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_add_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/add_button"
+            android:src="@android:drawable/ic_input_add"
+            android:tint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="16dp"
+            app:backgroundTint="@color/purple_500"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
