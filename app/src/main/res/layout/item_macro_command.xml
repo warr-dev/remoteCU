@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:background="?attr/selectableItemBackground">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/commandIrCodeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IR Code: 0xFF00"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/commandDelayText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delay: 500ms"
+            android:textSize="12sp"
+            android:textColor="#666"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnRemoveCommand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remove"
+        style="@style/Widget.Material3.Button.TextButton"/>
+</LinearLayout>

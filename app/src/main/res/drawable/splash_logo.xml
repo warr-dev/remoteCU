@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+
+    <!-- Remote control icon shape -->
+    <path
+        android:fillColor="@color/white"
+        android:pathData="M60,40 L140,40 Q150,40 150,50 L150,170 Q150,180 140,180 L60,180 Q50,180 50,170 L50,50 Q50,40 60,40 Z" />
+
+    <!-- Power button circle -->
+    <path
+        android:fillColor="@color/remoteCU_accent"
+        android:pathData="M100,70 m-15,0 a15,15 0 1,0 30,0 a15,15 0 1,0 -30,0" />
+
+    <!-- Direction pad - Up -->
+    <path
+        android:fillColor="@color/remoteCU_primary_dark"
+        android:pathData="M95,100 L105,100 L105,95 L95,95 Z" />
+
+    <!-- Direction pad - Down -->
+    <path
+        android:fillColor="@color/remoteCU_primary_dark"
+        android:pathData="M95,130 L105,130 L105,135 L95,135 Z" />
+
+    <!-- Direction pad - Left -->
+    <path
+        android:fillColor="@color/remoteCU_primary_dark"
+        android:pathData="M80,115 L85,115 L85,125 L80,125 Z" />
+
+    <!-- Direction pad - Right -->
+    <path
+        android:fillColor="@color/remoteCU_primary_dark"
+        android:pathData="M115,115 L120,115 L120,125 L115,125 Z" />
+
+    <!-- Center button -->
+    <path
+        android:fillColor="@color/remoteCU_accent"
+        android:pathData="M100,120 m-8,0 a8,8 0 1,0 16,0 a8,8 0 1,0 -16,0" />
+
+    <!-- Number buttons row 1 -->
+    <path
+        android:fillColor="@color/remoteCU_primary_light"
+        android:pathData="M75,145 m-5,0 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0" />
+    <path
+        android:fillColor="@color/remoteCU_primary_light"
+        android:pathData="M100,145 m-5,0 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0" />
+    <path
+        android:fillColor="@color/remoteCU_primary_light"
+        android:pathData="M125,145 m-5,0 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0" />
+
+    <!-- Number buttons row 2 -->
+    <path
+        android:fillColor="@color/remoteCU_primary_light"
+        android:pathData="M75,160 m-5,0 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0" />
+    <path
+        android:fillColor="@color/remoteCU_primary_light"
+        android:pathData="M100,160 m-5,0 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0" />
+    <path
+        android:fillColor="@color/remoteCU_primary_light"
+        android:pathData="M125,160 m-5,0 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0" />
+</vector>

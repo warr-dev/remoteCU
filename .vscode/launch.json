@@ -1,0 +1,29 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Android: Build and Run",
+            "request": "launch",
+            "mainClass": "",
+            "projectName": "remoteCU",
+            "preLaunchTask": "Android: Full Workflow (Build + Install + Launch)"
+        },
+        {
+            "type": "java",
+            "name": "Android: Quick Launch (No Build)",
+            "request": "launch",
+            "mainClass": "",
+            "projectName": "remoteCU",
+            "preLaunchTask": "Android: Launch App"
+        },
+        {
+            "type": "java",
+            "name": "Android: Build Only",
+            "request": "launch",
+            "mainClass": "",
+            "projectName": "remoteCU",
+            "preLaunchTask": "Android: Build Debug APK"
+        }
+    ]
+}

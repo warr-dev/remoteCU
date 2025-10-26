@@ -36,7 +36,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.GridLayout;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -71,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
     private ConsumerIrManager irManager;
     private EditText irValueInput;
     private EditText buttonNameInput;
-    private FrameLayout buttonContainer;
+    private GridLayout buttonContainer;
     private SharedPrefManager sharedPrefManager;
     private BluetoothAdapter bluetoothAdapter;
     private BluetoothLeScanner bluetoothLeScanner;
@@ -107,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Initialize the UI elements
-        buttonContainer = findViewById(R.id.buttonContainer);
+        buttonContainer = findViewById(R.id.gridLayout);
 //        sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         sharedPrefManager = new SharedPrefManager(this);
 
@@ -493,7 +492,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Add button to the layout
-        buttonContainer = findViewById(R.id.buttonContainer);
+        buttonContainer = findViewById(R.id.gridLayout);
         buttonContainer.addView(newButton);
 
         if(!isloading){

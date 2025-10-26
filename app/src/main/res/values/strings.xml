@@ -1,4 +1,63 @@
 <resources>
-    <string name="app_name">RemoteCu</string>
+    <!-- App Name -->
+    <string name="app_name">RemoteCU</string>
+    <string name="app_name_full">RemoteCU - Smart IR Remote</string>
+    <string name="app_tagline">Control Everything, Anywhere</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_loading">Loading RemoteCU…</string>
+    <string name="splash_version">v2.0</string>
+
+    <!-- Main UI -->
     <string name="add_button">Add Button</string>
+    <string name="scan_ble">Scan BLE</string>
+    <string name="edit_mode">Edit Mode</string>
+    <string name="done">Done</string>
+    <string name="create_macro">Macro</string>
+
+    <!-- Button Actions -->
+    <string name="add_new_button">Add New Button</string>
+    <string name="edit_button">Edit Button</string>
+    <string name="delete_button">Delete Button</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- Hints -->
+    <string name="hint_button_name">Enter Button Name</string>
+    <string name="hint_ir_value">Enter IR Value (in Hex)</string>
+    <string name="hint_macro_name">Macro Name</string>
+    <string name="hint_ir_code">IR Code</string>
+    <string name="hint_delay">Delay (ms)</string>
+
+    <!-- Messages -->
+    <string name="button_added">Button added successfully</string>
+    <string name="button_updated">Button updated</string>
+    <string name="button_deleted">Button deleted</string>
+    <string name="macro_created">Macro created successfully</string>
+    <string name="ir_signal_sent">IR Signal Sent: %1$s</string>
+    <string name="executing_macro">Executing macro: %1$s</string>
+
+    <!-- Errors -->
+    <string name="error_duplicate_button">Button with this name already exists!</string>
+    <string name="error_invalid_ir">Please enter a valid IR value</string>
+    <string name="error_no_ir_emitter">No IR emitter found on this device.</string>
+    <string name="error_fill_all_fields">Please fill all fields</string>
+    <string name="error_invalid_delay">Invalid delay value</string>
+
+    <!-- Dialogs -->
+    <string name="dialog_delete_title">Delete Button</string>
+    <string name="dialog_delete_message">Are you sure you want to delete \'%1$s\'?</string>
+    <string name="dialog_delete_confirm">Delete</string>
+
+    <!-- BLE -->
+    <string name="scanning_ble">Scanning for BLE devices...</string>
+    <string name="select_ble_device">Select a BLE Device</string>
+    <string name="no_ble_devices">No BLE devices found</string>
+    <string name="bluetooth_required">Bluetooth is required</string>
+    <string name="enable_bluetooth">Enable Bluetooth</string>
+    <string name="enable_bluetooth_message">Bluetooth is required to scan for BLE devices. Would you like to enable it?</string>
+
+    <!-- About -->
+    <string name="about_remotecu">RemoteCU is a customizable IR remote control app for controlling any IR device.</string>
+    <string name="version">Version 2.0</string>
 </resources>

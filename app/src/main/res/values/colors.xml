@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Brand Colors for RemoteCU -->
+    <color name="remoteCU_primary">#FF1E88E5</color>        <!-- Bright Blue -->
+    <color name="remoteCU_primary_dark">#FF1565C0</color>   <!-- Dark Blue -->
+    <color name="remoteCU_primary_light">#FF42A5F5</color>  <!-- Light Blue -->
+    <color name="remoteCU_accent">#FFFF5722</color>         <!-- Orange Accent -->
+    <color name="remoteCU_accent_dark">#FFE64A19</color>    <!-- Dark Orange -->
+
+    <!-- Background Colors -->
+    <color name="remoteCU_background">#FFF5F5F5</color>     <!-- Light Gray -->
+    <color name="remoteCU_surface">#FFFFFFFF</color>        <!-- White -->
+    <color name="remoteCU_dark_background">#FF121212</color> <!-- Dark Mode Background -->
+
+    <!-- Text Colors -->
+    <color name="remoteCU_text_primary">#FF212121</color>   <!-- Almost Black -->
+    <color name="remoteCU_text_secondary">#FF757575</color> <!-- Gray -->
+    <color name="remoteCU_text_on_primary">#FFFFFFFF</color> <!-- White on Blue -->
+
+    <!-- Status Colors -->
+    <color name="remoteCU_success">#FF4CAF50</color>        <!-- Green -->
+    <color name="remoteCU_warning">#FFFFC107</color>        <!-- Amber -->
+    <color name="remoteCU_error">#FFF44336</color>          <!-- Red -->
+
+    <!-- Legacy colors (keep for compatibility) -->
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
