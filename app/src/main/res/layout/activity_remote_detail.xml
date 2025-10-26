@@ -18,17 +18,17 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/remoteCU_primary"
-            app:title="My Remotes"
             app:titleTextColor="@color/white"
-            app:layout_scrollFlags="scroll|enterAlways">
+            app:navigationIcon="@android:drawable/ic_menu_close_clear_cancel">
 
-            <!-- BLE Scan Button -->
+            <!-- Edit Mode Toggle Button -->
             <Button
-                android:id="@+id/scanButton"
+                android:id="@+id/layoutModeButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:text="📡 Scan BLE"
+                android:text="✏️ Edit"
+                android:textSize="18sp"
                 android:textColor="@color/white"
                 style="@style/Widget.Material3.Button.TextButton"
                 android:layout_marginEnd="8dp"/>
@@ -49,7 +49,7 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Header Card -->
+            <!-- Remote Info Header -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -61,30 +61,50 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:gravity="center_vertical">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="📱 RemoteCU"
-                        android:textSize="24sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:layout_marginBottom="4dp"/>
+                        android:id="@+id/remoteIcon"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:text="📺"
+                        android:textSize="48sp"
+                        android:gravity="center"
+                        android:layout_marginEnd="16dp"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Tap a remote to control it, or create a new one"
-                        android:textSize="14sp"
-                        android:textColor="@color/white"/>
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/remoteName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TV Remote"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"/>
+
+                        <TextView
+                            android:id="@+id/remoteButtonCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0 buttons"
+                            android:textSize="14sp"
+                            android:textColor="@color/white"
+                            android:layout_marginTop="4dp"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Remote Profiles List -->
+            <!-- Buttons Container -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -98,18 +118,17 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <!-- LIST VIEW - RecyclerView for buttons list -->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/buttonsListView"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="My Remote Controls"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/remoteCU_text_primary"
-                        android:layout_marginBottom="12dp"/>
+                        android:visibility="visible"
+                        android:nestedScrollingEnabled="false"/>
 
-                    <!-- Empty State (shown when no profiles) -->
+                    <!-- Empty State for List View -->
                     <LinearLayout
-                        android:id="@+id/emptyState"
+                        android:id="@+id/emptyButtonsState"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
                         android:orientation="vertical"
@@ -119,14 +138,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="📱"
+                            android:text="🎛️"
                             android:textSize="48sp"
                             android:layout_marginBottom="8dp"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="No remotes yet"
+                            android:text="No buttons yet"
                             android:textSize="16sp"
                             android:textColor="@color/remoteCU_text_secondary"
                             android:layout_marginBottom="4dp"/>
@@ -134,18 +153,20 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Tap + to create your first remote"
+                            android:text="Tap + to add your first button"
                             android:textSize="12sp"
                             android:textColor="@color/remoteCU_text_secondary"/>
 
                     </LinearLayout>
 
-                    <!-- Profiles RecyclerView -->
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/profilesRecyclerView"
+                    <!-- LAYOUT VIEW - FrameLayout for draggable button positioning -->
+                    <FrameLayout
+                        android:id="@+id/buttonLayoutView"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:minHeight="100dp"/>
+                        android:layout_height="500dp"
+                        android:background="@color/remoteCU_background"
+                        android:padding="8dp"
+                        android:visibility="gone"/>
 
                 </LinearLayout>
 
@@ -155,14 +176,14 @@
 
     </androidx.core.widget.NestedScrollView>
 
-    <!-- Floating Action Button to Add New Remote -->
+    <!-- Floating Action Button to Add New Button -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
-        android:contentDescription="Add new remote control"
+        android:contentDescription="Add new button"
         android:src="@android:drawable/ic_input_add"
         app:tint="@color/white"
         app:backgroundTint="@color/remoteCU_primary"/>

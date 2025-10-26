@@ -42,6 +42,9 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.card.MaterialCardView;
+
 import com.hoho.android.usbserial.driver.UsbSerialDriver;
 import com.hoho.android.usbserial.driver.UsbSerialPort;
 import com.hoho.android.usbserial.driver.UsbSerialProber;
@@ -107,14 +110,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Initialize the UI elements
-        buttonContainer = findViewById(R.id.buttonContainer);
+        //buttonContainer = findViewById(R.id.buttonContainer);
 //        sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         sharedPrefManager = new SharedPrefManager(this);
 
-        irValueInput = findViewById(R.id.irValueInput);
-        buttonNameInput = findViewById(R.id.buttonName);
+        //irValueInput = findViewById(R.id.irValueInput);
+        //buttonNameInput = findViewById(R.id.buttonName);
         irManager = (ConsumerIrManager) getSystemService(Context.CONSUMER_IR_SERVICE);
-        Button addButton = findViewById(R.id.addButton);
+        //Button addButton = findViewById(R.id.addButton);
 
         // Load existing buttons
         loadSavedButtons();
@@ -131,8 +134,8 @@ public class MainActivity extends AppCompatActivity {
 ////            initBluetooth();  // Initialize Bluetooth functionality
 //            startScan();
 //        }
-        // Initialize the scan button and set its click listener
-        Button scanButton = findViewById(R.id.scanButton);
+        // Initialize the scan button (now a CardView) and set its click listener
+        MaterialCardView scanButton = findViewById(R.id.scanButton);
         scanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -145,20 +148,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Initialize FAB for adding new buttons
+        //FloatingActionButton fab = findViewById(R.id.fab);
+        //MaterialCardView addNewButtonGroup = findViewById(R.id.addNewButtonGroup);
 
-
-//        scanLeDevice(true); // Start scanning
-
-//        permissionIntent = PendingIntent.getBroadcast(this, 0, new Intent(ACTION_USB_PERMISSION), PendingIntent.FLAG_IMMUTABLE);
-
-        // Register USB device attached receiver
-//        IntentFilter filter = new IntentFilter();
-//        filter.addAction(UsbManager.ACTION_USB_DEVICE_ATTACHED);
-//        registerReceiver(usbReceiver, filter);
-
-        // Button to manually show device selection
-//        selectDeviceButton.setOnClickListener(v -> showDeviceSelectionDialog());
-
+        /*fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Toggle visibility of the add button form
+                if (addNewButtonGroup.getVisibility() == View.GONE) {
+                    addNewButtonGroup.setVisibility(View.VISIBLE);
+                } else {
+                    addNewButtonGroup.setVisibility(View.GONE);
+                }
+            }
+        });
 
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -166,8 +170,13 @@ public class MainActivity extends AppCompatActivity {
                 String irValue = irValueInput.getText().toString().trim();
                 String name = buttonNameInput.getText().toString().trim();
                 createDynamicButton(name, irValue, false);
+                // Hide the form after creating button
+                addNewButtonGroup.setVisibility(View.GONE);
+                // Clear inputs
+                irValueInput.setText("");
+                buttonNameInput.setText("");
             }
-        });
+        });*/
 
     }
 
@@ -493,8 +502,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Add button to the layout
-        buttonContainer = findViewById(R.id.buttonContainer);
-        buttonContainer.addView(newButton);
+        // buttonContainer = findViewById(R.id.buttonContainer);
+        // buttonContainer.addView(newButton);
 
         if(!isloading){
             // Save button and IR code to SharedPreferences

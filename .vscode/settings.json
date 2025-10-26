@@ -1,0 +1,25 @@
+{
+    // Tell VSCode to use Gradle for building
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.import.gradle.enabled": true,
+    "java.import.gradle.wrapper.enabled": true,
+
+    // Disable features that don't work well with Android
+    "java.compile.nullAnalysis.mode": "disabled",
+    "java.autobuild.enabled": false,
+
+    // Android-specific paths
+    "java.project.sourcePaths": [
+        "app/src/main/java"
+    ],
+
+    // Hide build artifacts
+    "files.exclude": {
+        "**/.gradle": true,
+        "**/build": true,
+        "**/.idea": true
+    },
+
+    // Use Gradle for everything
+    "java.configuration.gradle.enabled": true
+}

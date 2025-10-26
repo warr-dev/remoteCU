@@ -84,7 +84,7 @@
                 "am",
                 "start",
                 "-n",
-                "com.example.remotecu/.MainActivity"
+                "com.example.remotecu/.SplashActivity"
             ],
             "group": "none",
             "presentation": {

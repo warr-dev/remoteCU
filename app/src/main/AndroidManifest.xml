@@ -39,9 +39,9 @@
             </intent-filter>
         </activity>
 
-        <!-- Main Activity -->
+        <!-- Main Activity (New Profile List View) -->
         <activity
-            android:name=".MainActivity"
+            android:name=".MainActivityNew"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
@@ -50,6 +50,18 @@
                 android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
                 android:resource="@xml/device_filter" />
         </activity>
+
+        <!-- Remote Detail Activity -->
+        <activity
+            android:name=".RemoteDetailActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivityNew"/>
+
+        <!-- Old MainActivity (kept for backward compatibility) -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"/>
+
     </application>
 
 </manifest>
