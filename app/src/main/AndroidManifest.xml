@@ -57,6 +57,12 @@
             android:exported="false"
             android:parentActivityName=".MainActivityNew"/>
 
+        <!-- Remote Edit Activity -->
+        <activity
+            android:name=".RemoteEditActivity"
+            android:exported="false"
+            android:parentActivityName=".RemoteDetailActivity"/>
+
         <!-- Old MainActivity (kept for backward compatibility) -->
         <activity
             android:name=".MainActivity"

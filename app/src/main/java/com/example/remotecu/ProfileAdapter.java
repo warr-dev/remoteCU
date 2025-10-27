@@ -90,11 +90,19 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
                 activeIndicator.setVisibility(View.GONE);
             }
 
-            // Click listener for the whole card
+            // Click listener for the whole card - open remote in full screen
             cardView.setOnClickListener(v -> {
                 if (listener != null) {
                     listener.onProfileClick(profile);
                 }
+            });
+
+            // Long-press listener for edit/delete options
+            cardView.setOnLongClickListener(v -> {
+                if (listener != null) {
+                    listener.onProfileMenuClick(profile, v);
+                }
+                return true;
             });
 
             // Click listener for menu icon

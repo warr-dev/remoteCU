@@ -157,10 +157,12 @@ public class MainActivityNew extends AppCompatActivity implements ProfileAdapter
         // Show context menu for edit/delete
         AlertDialog dialog = new AlertDialog.Builder(this)
                 .setTitle(profile.getIcon() + " " + profile.getName())
-                .setItems(new String[]{"Edit", "Delete"}, (dialogInterface, i) -> {
+                .setItems(new String[]{"Edit Layout", "Delete"}, (dialogInterface, i) -> {
                     if (i == 0) {
-                        // Edit
-                        Toast.makeText(this, "Edit feature coming soon", Toast.LENGTH_SHORT).show();
+                        // Edit - Open edit screen
+                        Intent intent = new Intent(this, RemoteEditActivity.class);
+                        intent.putExtra("PROFILE_ID", profile.getId());
+                        startActivity(intent);
                     } else {
                         // Delete
                         showDeleteConfirmation(profile);

@@ -38,12 +38,12 @@
                     style="@style/Widget.Material3.Button.TextButton"
                     android:layout_marginEnd="4dp"/>
 
-                <!-- Edit Mode Toggle Button -->
+                <!-- Save Button -->
                 <Button
-                    android:id="@+id/layoutModeButton"
+                    android:id="@+id/saveButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="✏️ Edit"
+                    android:text="💾 Save"
                     android:textSize="18sp"
                     android:textColor="@color/white"
                     style="@style/Widget.Material3.Button.TextButton"
@@ -123,88 +123,81 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Buttons Container -->
+            <!-- Edit Mode Instructions -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardElevation="2dp"
-                app:cardCornerRadius="12dp"
+                android:layout_marginBottom="16dp"
+                app:cardElevation="1dp"
+                app:cardCornerRadius="8dp"
                 app:cardBackgroundColor="@color/remoteCU_surface">
 
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <!-- LIST VIEW - RecyclerView for buttons list -->
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/buttonsListView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:visibility="visible"
-                        android:nestedScrollingEnabled="false"/>
-
-                    <!-- Empty State for List View -->
-                    <LinearLayout
-                        android:id="@+id/emptyButtonsState"
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:visibility="gone">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="🎛️"
-                            android:textSize="48sp"
-                            android:layout_marginBottom="8dp"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="No buttons yet"
-                            android:textSize="16sp"
-                            android:textColor="@color/remoteCU_text_secondary"
-                            android:layout_marginBottom="4dp"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Tap + to add your first button"
-                            android:textSize="12sp"
-                            android:textColor="@color/remoteCU_text_secondary"/>
-
-                    </LinearLayout>
-
-                    <!-- LAYOUT VIEW - FrameLayout for draggable button positioning -->
-                    <FrameLayout
-                        android:id="@+id/buttonLayoutView"
-                        android:layout_width="match_parent"
-                        android:layout_height="500dp"
-                        android:background="@color/remoteCU_background"
-                        android:padding="8dp"
-                        android:visibility="gone"/>
-
-                </LinearLayout>
+                    android:padding="12dp"
+                    android:text="✏️ Edit Mode\n• Drag buttons to reposition\n• Long-press to delete\n• Tap + to add new buttons"
+                    android:textSize="14sp"
+                    android:textColor="@color/remoteCU_text_primary"/>
 
             </com.google.android.material.card.MaterialCardView>
+
+            <!-- Empty State -->
+            <LinearLayout
+                android:id="@+id/emptyButtonsState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="32dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📱"
+                    android:textSize="64sp"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No buttons yet"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/remoteCU_text_primary"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tap the + button to add your first button"
+                    android:textSize="14sp"
+                    android:textColor="@color/remoteCU_text_secondary"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+            <!-- Button Container -->
+            <FrameLayout
+                android:id="@+id/buttonContainer"
+                android:layout_width="match_parent"
+                android:layout_height="600dp"
+                android:background="@color/remoteCU_surface"/>
 
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
 
-    <!-- Floating Action Button to Add New Button -->
+    <!-- FAB for adding buttons -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
-        android:contentDescription="Add new button"
         android:src="@android:drawable/ic_input_add"
         app:tint="@color/white"
-        app:backgroundTint="@color/remoteCU_primary"/>
+        app:backgroundTint="@color/remoteCU_accent"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
